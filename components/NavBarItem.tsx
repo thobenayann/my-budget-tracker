@@ -14,8 +14,6 @@ interface NavBarItemProps {
 function NavBarItem({ link, label, onClickCallback }: NavBarItemProps) {
     const pathname = usePathname();
     const isActive = pathname === link;
-    console.log('isActive', isActive);
-    console.log('pathname', pathname);
     return (
         <div className='relative flex items-center'>
             <Link
