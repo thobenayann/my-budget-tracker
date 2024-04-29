@@ -3,11 +3,11 @@ import Logo from './Logo';
 import NavBarItem from './NavBarItem';
 import { ThemeSwitcherBtn } from './ThemeSwitcherBtn';
 
-interface NavBarItemsProps {
+interface DesktopNavBarProps {
     navBarItems: { link: string; label: string }[];
 }
 
-function DesktopNavBar({ navBarItems }: NavBarItemsProps) {
+function DesktopNavBar({ navBarItems }: DesktopNavBarProps) {
     return (
         <div className='hidden border-separate border-b bg-background md:block'>
             <nav className='container flex items-center justify-between px-8'>

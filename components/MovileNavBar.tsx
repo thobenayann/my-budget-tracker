@@ -1,6 +1,5 @@
 'use client';
 
-import { navBarItems } from '@/constant/nav-bar-items';
 import { UserButton } from '@clerk/nextjs';
 import { Menu } from 'lucide-react';
 import React from 'react';
@@ -10,7 +9,11 @@ import { ThemeSwitcherBtn } from './ThemeSwitcherBtn';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 
-function MovileNavBar() {
+interface MovileNavBarProps {
+    navBarItems: { link: string; label: string }[];
+}
+
+function MovileNavBar({ navBarItems }: MovileNavBarProps) {
     const [isOpen, setIsOpen] = React.useState(false);
     return (
         <div className='block border-separate bg-background md:hidden'>

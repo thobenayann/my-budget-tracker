@@ -6,7 +6,7 @@ function NavBar() {
     return (
         <>
             <DesktopNavBar navBarItems={navBarItems} />
-            <MovileNavBar />
+            <MovileNavBar navBarItems={navBarItems} />
         </>
     );
 }
