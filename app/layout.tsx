@@ -1,4 +1,4 @@
-import RootProviders from '@/components/providers/RootProviders';
+import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -18,9 +18,21 @@ export default function RootLayout({
 }>) {
     return (
         <ClerkProvider>
-            <html lang='fr' className='dark' style={{ colorScheme: 'dark' }}>
+            <html
+                lang='fr'
+                className='dark'
+                style={{ colorScheme: 'dark' }}
+                suppressHydrationWarning
+            >
                 <body className={inter.className}>
-                    <RootProviders>{children}</RootProviders>
+                    <ThemeProvider
+                        attribute='class'
+                        defaultTheme='system'
+                        enableSystem
+                        disableTransitionOnChange
+                    >
+                        {children}
+                    </ThemeProvider>
                 </body>
             </html>
         </ClerkProvider>
