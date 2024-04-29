@@ -1,7 +1,14 @@
+import { navBarItems } from '@/constant/nav-bar-items';
 import DesktopNavBar from './DesktopNavBar';
+import MovileNavBar from './MovileNavBar';
 
 function NavBar() {
-    return <DesktopNavBar />;
+    return (
+        <>
+            <DesktopNavBar navBarItems={navBarItems} />
+            <MovileNavBar />
+        </>
+    );
 }
 
 export default NavBar;

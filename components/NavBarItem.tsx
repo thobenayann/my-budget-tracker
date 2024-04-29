@@ -5,7 +5,13 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { buttonVariants } from './ui/button';
 
-function NavBarItem({ link, label }: { link: string; label: string }) {
+interface NavBarItemProps {
+    link: string;
+    label: string;
+    onClickCallback?: () => void;
+}
+
+function NavBarItem({ link, label, onClickCallback }: NavBarItemProps) {
     const pathname = usePathname();
     const isActive = pathname === link;
     console.log('isActive', isActive);
@@ -19,6 +25,7 @@ function NavBarItem({ link, label }: { link: string; label: string }) {
                     'w-full justify-start text-lg text-muted-foreground hover:text-foreground',
                     isActive && 'text-foreground'
                 )}
+                onClick={() => onClickCallback && onClickCallback()}
             >
                 {label}
             </Link>
