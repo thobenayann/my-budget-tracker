@@ -1,5 +1,6 @@
 import QueryProvider from '@/components/providers/QueryProvider';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
+import { Toaster } from '@/components/ui/sonner';
 import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -36,6 +37,7 @@ export default function RootLayout({
                         >
                             {children}
                         </ThemeProvider>
+                        <Toaster richColors position='bottom-right' />
                     </QueryProvider>
                 </body>
             </html>
