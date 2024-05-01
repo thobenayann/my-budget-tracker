@@ -9,7 +9,7 @@ CREATE TABLE "Category" (
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "name" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
-    "incon" TEXT NOT NULL,
+    "icon" TEXT NOT NULL,
     "type" TEXT NOT NULL DEFAULT 'income'
 );
 

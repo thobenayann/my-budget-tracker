@@ -9,15 +9,11 @@ import {
     CardTitle,
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { currentUser } from '@clerk/nextjs/server';
+import { getCurrentUser } from '@/lib/getCurrentUser';
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
 
 async function page() {
-    const user = await currentUser();
-    if (!user) {
-        redirect('/sign-in');
-    }
+    const user = await getCurrentUser();
     return (
         <div className='container flex max-w-2xl flex-col items-center justify-center gap-4'>
             <header>
