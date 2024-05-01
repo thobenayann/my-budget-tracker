@@ -3,6 +3,7 @@ import { getCurrentUser } from '@/lib/getCurrentUser';
 import prisma from '@/lib/prisma';
 import { redirect } from 'next/navigation';
 import CreateTransactionDialog from './_components/CreateTransactionDialog';
+import Overview from './_components/Overview';
 
 async function page() {
     const user = await getCurrentUser();
@@ -51,6 +52,7 @@ async function page() {
                     </div>
                 </div>
             </div>
+            <Overview userSettings={userSettings} />
         </div>
     );
 }
