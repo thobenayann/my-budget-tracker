@@ -5,6 +5,8 @@ import prisma from '@/lib/prisma';
 import {
     CreateCategorySchema,
     CreateCategorySchemaType,
+    DeleteCategorySchema,
+    DeleteCategorySchemaType,
 } from '@/schema/categories';
 
 export async function CreateCategory(from: CreateCategorySchemaType) {
@@ -22,6 +24,25 @@ export async function CreateCategory(from: CreateCategorySchemaType) {
             name,
             icon,
             type,
+        },
+    });
+}
+
+export async function DeleteCategory(form: DeleteCategorySchemaType) {
+    const parsedBody = DeleteCategorySchema.safeParse(form);
+    if (!parsedBody.success) {
+        throw new Error('bad request');
+    }
+
+    const user = await getCurrentUser();
+
+    return await prisma.category.delete({
+        where: {
+            name_userId_type: {
+                userId: user.id,
+                name: parsedBody.data.name,
+                type: parsedBody.data.type,
+            },
         },
     });
 }
