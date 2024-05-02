@@ -1,4 +1,4 @@
-import { Currencies } from '@/lib/constant/currencies';
+import { Currencies } from '@/lib/constants/currencies';
 import { z } from 'zod';
 
 export const UpdateUserCurrencyShema = z.object({

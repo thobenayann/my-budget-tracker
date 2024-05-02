@@ -1,4 +1,4 @@
-import { MAX_DATE_RANGE_DAYS } from '@/lib/constant/max-date-range-day';
+import { MAX_DATE_RANGE_DAYS } from '@/lib/constants/max-date-range-days';
 import { differenceInDays } from 'date-fns';
 import { z } from 'zod';
 

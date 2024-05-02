@@ -1,4 +1,4 @@
-import { navBarItems } from '@/lib/constant/nav-bar-items';
+import { navBarItems } from '@/lib/constants/nav-bar-items';
 import DesktopNavBar from './DesktopNavBar';
 import MovileNavBar from './MovileNavBar';
 

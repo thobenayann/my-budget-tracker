@@ -5,18 +5,18 @@ import { Skeleton } from './ui/skeleton';
 interface SkeletonWrapperProps {
     children: React.ReactNode;
     isLoading: boolean;
-    fullWith?: boolean;
+    fullWidth?: boolean;
 }
 
 function SkeletonWrapper({
     children,
     isLoading,
-    fullWith,
+    fullWidth = true,
 }: SkeletonWrapperProps) {
     if (!isLoading) return children;
 
     return (
-        <Skeleton className={cn(fullWith && 'w-full')}>
+        <Skeleton className={cn(fullWidth && 'w-full')}>
             <div className='opacity-0'>{children}</div>
         </Skeleton>
     );

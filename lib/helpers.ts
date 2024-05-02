@@ -1,4 +1,4 @@
-import { Currencies } from './constant/currencies';
+import { Currencies } from './constants/currencies';
 
 /**
  * Convertit un objet Date en un objet Date UTC.

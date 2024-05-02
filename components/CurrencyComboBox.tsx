@@ -19,7 +19,7 @@ import {
     PopoverTrigger,
 } from '@/components/ui/popover';
 import { useMediaQuery } from '@/hooks/use-media-query';
-import { Currencies, Currency } from '@/lib/constant/currencies';
+import { Currencies, Currency } from '@/lib/constants/currencies';
 import { UserSettings } from '@prisma/client';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { toast } from 'sonner';
