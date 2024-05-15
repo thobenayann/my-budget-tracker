@@ -14,6 +14,7 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from '@/components/ui/popover';
+import { useMediaQuery } from '@/hooks/use-media-query';
 import { TransactionType } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { Category } from '@prisma/client';
@@ -31,6 +32,7 @@ interface CategoryPickerProps {
 function CategoryPicker({ type, onChange }: CategoryPickerProps) {
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState('');
+    const isDesktop = useMediaQuery('(min-width: 768px)');
 
     useEffect(() => {
         if (!value) return;
@@ -73,7 +75,10 @@ function CategoryPicker({ type, onChange }: CategoryPickerProps) {
                     <ChevronsUpDown className='ml-2 h-4 w-4 shrink-0 opacity-50' />
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className='w-[200px] p-0'>
+            <PopoverContent
+                className='w-[200px] p-0'
+                sideOffset={isDesktop ? 0 : 50}
+            >
                 <Command
                     onSubmit={(e) => {
                         e.preventDefault();

@@ -168,7 +168,7 @@ function CreateTransactionDialog({
                             )}
                         />
 
-                        <div className='flex items-center justify-between gap-2'>
+                        <div className='flex flex-col md:flex-row md:items-center justify-between gap-2'>
                             <FormField
                                 control={form.control}
                                 name='category'
