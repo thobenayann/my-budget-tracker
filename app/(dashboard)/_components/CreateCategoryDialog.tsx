@@ -26,6 +26,7 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from '@/components/ui/popover';
+import { useMediaQuery } from '@/hooks/use-media-query';
 import { TransactionType } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import {
@@ -55,6 +56,7 @@ function CreateCategoryDialog({
     trigger,
 }: CreateCategoryDialogProps) {
     const [open, setOpen] = useState(false);
+    const [selectEmojiOpen, setSelectEmojiOpen] = useState(false);
     const form = useForm<CreateCategorySchemaType>({
         resolver: zodResolver(CreateCategorySchema),
         defaultValues: {
@@ -62,6 +64,7 @@ function CreateCategoryDialog({
         },
     });
 
+    const isDesktop = useMediaQuery('(min-width: 768px)');
     const theme = useTheme();
     const queryClient = useQueryClient();
 
@@ -168,7 +171,10 @@ function CreateCategoryDialog({
                                 <FormItem>
                                     <FormLabel>Icon</FormLabel>
                                     <FormControl>
-                                        <Popover>
+                                        <Popover
+                                            open={selectEmojiOpen}
+                                            onOpenChange={setSelectEmojiOpen}
+                                        >
                                             <PopoverTrigger asChild>
                                                 <Button
                                                     variant={'outline'}
@@ -196,7 +202,12 @@ function CreateCategoryDialog({
                                                     )}
                                                 </Button>
                                             </PopoverTrigger>
-                                            <PopoverContent className='w-full'>
+                                            <PopoverContent
+                                                sideOffset={
+                                                    isDesktop ? 0 : -150
+                                                }
+                                                className='w-full'
+                                            >
                                                 <Picker
                                                     data={data}
                                                     theme={theme.resolvedTheme}
@@ -206,7 +217,11 @@ function CreateCategoryDialog({
                                                         field.onChange(
                                                             emoji.native
                                                         );
+                                                        setSelectEmojiOpen(
+                                                            false
+                                                        );
                                                     }}
+                                                    maxFrequentRows={1}
                                                 />
                                             </PopoverContent>
                                         </Popover>

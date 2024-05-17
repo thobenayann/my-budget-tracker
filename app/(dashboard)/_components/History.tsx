@@ -189,7 +189,7 @@ function History({ userSettings }: { userSettings: UserSettings }) {
                             </ResponsiveContainer>
                         )}
                         {!dataAvailable && (
-                            <Card className='flex h-[300px] flex-col items-center justify-center bg-background'>
+                            <Card className='flex h-[300px] flex-col items-center justify-center bg-background max-md:px-4'>
                                 No data for the selected period
                                 <p className='text-sm text-muted-foreground'>
                                     Try selecting a different period or adding
@@ -213,7 +213,7 @@ function CustomTooltip({ active, payload, formatter }: any) {
     const { expense, income } = data;
 
     return (
-        <div className='min-w-[300px] rounded border bg-background p-4'>
+        <div className='min-w-[200px] md:min-w-[300px] rounded border bg-background p-4'>
             <TooltipRow
                 formatter={formatter}
                 label='Expense'
